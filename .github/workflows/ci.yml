@@ -6,12 +6,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      
+      - name: Install dependencies
+        run: |
+          cd desafio-cypress-QA
+          npm install
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: desafio-cypress-QA
-          config-file: cypress.config.js
+      - name: Cypress Run
+        run: |
+          cd desafio-cypress-QA
+          npx cypress run
 
       - uses: actions/upload-artifact@v4
         if: failure()
