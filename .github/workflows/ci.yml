@@ -1,33 +1,41 @@
 name: Desafio Cypress QA - CI
+
 on:
   push:
   workflow_dispatch:
+
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
       
       - name: Install dependencies
-        run: |
-          cd desafio-cypress-QA
-          npm install
+        working-directory: ./desafio-cypress-QA
+        run: npm install
 
       - name: Cypress Run
-        run: |
-          cd desafio-cypress-QA
-          npx cypress run
+        working-directory: ./desafio-cypress-QA
+        run: npx cypress run
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
-          path: desafio-cypress-QA/cypress/screenshots
+          path: ./desafio-cypress-QA/cypress/screenshots
           if-no-files-found: ignore
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload videos
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
-          path: desafio-cypress-QA/cypress/videos
+          path: ./desafio-cypress-QA/cypress/videos
           if-no-files-found: ignore
