@@ -1,89 +1,192 @@
-🧪 Desafio Cypress QA - Pablo Paiva
+# Desafio Cypress QA
 
 Este repositório contém a automação desenvolvida para o desafio prático de testes automatizados utilizando Cypress.
 
 O objetivo é demonstrar a criação de cenários reutilizáveis em um ambiente de e-commerce, utilizando boas práticas de estruturação, comandos customizados e integração contínua via GitHub Actions.
 
-🚀 Tecnologias Utilizadas
-- Node.js
-- Cypress
-- JavaScript
-- GitHub Actions (CI/CD)
+---
 
-📦 Instalação do Projeto
-1️⃣ Clonar o repositório
-git clone https://github.com/seu-usuario/desafio-cypress-QA.git
+## 📚 Sumário
 
-2️⃣ Acessar a pasta do projeto
+* [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+* [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+* [⚙️ Como instalar as dependências](#️-como-instalar-as-dependências)
+* [▶️ Como rodar os testes](#️-como-rodar-os-testes)
+* [🧪 Cenários Automatizados](#-cenários-automatizados)
+  * [Login](---)
+  * [Carrinho](---)
+* [🧩 Comandos Personalizados](#-comandos-personalizados)
+* [👨‍💻 Autor](---)
+
+---
+## 🛠️ Tecnologias Utilizadas
+* Node.js
+* Cypress 15.6.0
+* JavaScript
+* GitHub Actions (CI)
+
+
+---
+## 📁 Estrutura do Projeto
+
+```
+desafio-cypress-QA/
+ ├── .github/workflows/
+ │    └── ci.yml
+ ├── cypress/
+ │    ├── e2e/
+ │    │    ├── cart.cy.js
+ │    │    └── login.cy.js
+ │    ├── fixtures/
+ │    │    └── accounts.json
+ │    ├── support/
+ │    │    ├── commands.js
+ │    │    └── e2e.js
+ ├── cypress.config.js
+ ├── jsconfig.json
+ ├── package.json
+ └── README.md
+```
+
+---
+## ⚙️ Como instalar as dependências
+1. Certifique-se de ter Node.js instalado. Caso não tenha, você pode instalar através do site oficial: https://nodejs.org/
+2. Clone o repositório:
+```bash
+git clone https://github.com/SEU_USUARIO/desafio-cypress-QA.git
+```
+
+3. Acesse o diretório do projeto:
+```bash
 cd desafio-cypress-QA
+```
 
-3️⃣ Instalar dependências
+4. Instale as dependências:
+```bash
 npm install
+```
 
-▶️ Como executar os testes
-📌 Rodar testes no modo interativo
+---
+## ▶️ Como rodar os testes
+
+### **Modo Interativo (GUI do Cypress)**
+
+```bash
 npx cypress open
+```
 
-📌 Rodar testes no modo headless (terminal)
+### **Modo Headless (Terminal)**
+
+```bash
 npx cypress run
+```
 
-📝 Cenários Automatizados
+### **Via GitHub Actions (Workflow Dispatch)**
 
-Login
-- Log in com e-mail válido e senha
-Valida que o usuário consegue logar com e-mail e senha corretos, garantindo que o fluxo de autenticação funcione para a maioria dos usuários.
-- Log in com nome de usuário válido e senha
-Testa login com o nome de usuário, cobrindo outro método comum de autenticação.
-- Log in com credenciais inválidas
-Garante que o sistema trata erros corretamente e que mensagens de feedback são exibidas, prevenindo problemas de segurança ou confusão do usuário.
-- Log in sem credenciais
-Verifica validação de formulário, assegurando que campos obrigatórios são tratados corretamente.
+É possível executar os testes diretamente pelo GitHub Actions através da opção **Run workflow**.
 
-Motivo da escolha: O login é uma funcionalidade crítica e reutilizável, pois qualquer fluxo de compra ou ação personalizada depende do usuário estar autenticado. Testar todas as variações garante estabilidade e cobertura completa do processo de autenticação.
+📌 **Atenção:** Por padrão, apenas colaboradores com permissão de escrita podem executar manualmente workflows do tipo *workflow_dispatch*. Usuários externos não têm permissão de rodar workflows manualmente em repositórios públicos.
 
-Carrinho
-- Adicionar um produto ao carrinho
-Testa a adição básica de produto, garantindo que o usuário consiga iniciar o processo de compra.
-- Adicionar dois produtos iguais ao carrinho
-Valida que a quantidade é contabilizada corretamente, prevenindo erros em compras múltiplas do mesmo item.
-- Adicionar dois produtos diferentes ao carrinho
-Garante que múltiplos produtos possam ser combinados sem conflito, simulando situações reais de compra.
-- Adicionar produto fora de estoque
-Testa mensagens de erro e controle de estoque, evitando problemas de experiência do usuário e pedidos impossíveis.
-- Visualizar conteúdo do carrinho
-Assegura que os produtos adicionados sejam exibidos corretamente, verificando integridade visual e funcional.
-- Remover um produto do carrinho
-Testa a remoção simples, garantindo atualização correta do carrinho e feedback visual.
-- Remover todos os produtos do carrinho
-Valida exclusão completa de itens, útil para preparar o carrinho para novos testes e evitar dados persistentes.
-- Remover um item quando há múltiplos da mesma unidade
-Testa a atualização parcial de quantidade, refletindo comportamento real de usuários que alteram pedidos.
-- Aplicar cupom válido
-Valida aplicação de descontos, fluxo de promoções e mensagens de sucesso, essencial para testes de campanhas de marketing.
-- Aplicar cupom inválido
-Garante que o sistema trata cupons inexistentes corretamente, prevenindo inconsistências no checkout.
+Isso significa que **somente o autor ou colaboradores podem rodar o workflow pelo GitHub Actions**.
 
-Motivo da escolha: O carrinho é o núcleo do fluxo de compras e suas funcionalidades são amplamente reutilizáveis em vários cenários, como checkout, promoções e gestão de estoque. Automatizar esses testes garante confiabilidade no processo de compra e permite reutilização em múltiplos fluxos de e-commerce.
+---
+## 🧪 Cenários Automatizados
+Os testes foram desenvolvidos com foco em **cobertura funcional**, **clareza** e **reutilização** através de comandos personalizados.
 
-⚙️ Estrutura do Projeto
-.github/
- ├── workflows
- │   ├── ci.yml
-cypress/
- ├── e2e/
- │   └── cart.cy.js
- │   └── login.cy.js
- ├── fixtures/
- │   ├── account.json
- ├── support/
- │   ├── commands.js
- │   └── e2e.js
-cypress.config.js
-jsconfig.json
-package-lock.json
-package.json
+A seguir, cada cenário é listado com sua descrição e motivo.
 
-🔄 Integração Contínua (CI/CD) com GitHub Actions
-- O repositório está configurado para rodar os testes automaticamente sempre que houver um push.
-- Arquivo de workflow: .github/workflows/cypress.yml
-- Isso garante que todos os testes sejam executados e validados antes de qualquer merge ou atualização do código.
+---
+### Login (`login.cy.js`)
+A funcionalidade de login foi escolhida por ser uma das principais portas de entrada para áreas restritas do sistema. Testar diferentes variações garante a confiabilidade do fluxo de autenticação.
+
+#### 🔎 **Motivo da escolha**
+* É essencial para acessar páginas protegidas.
+* Erros de autenticação impactam diretamente o usuário.
+* Permite validar diferentes tipos de credenciais.
+* É facilmente reaproveitável em outros testes futuros.
+
+#### ✅ **Cenários de Teste**
+#### 1. **Login com e-mail válido e senha válida**
+Garante que o usuário consiga acessar sua conta usando o e-mail cadastrado.
+
+#### 2. **Login com username válido e senha válida**
+Valida a possibilidade de autenticação alternativa via nome de usuário.
+
+#### 3. **Tentativa de login com credenciais inválidas**
+Confirma que o sistema exibe mensagens adequadas de erro e não autentica usuários inválidos.
+
+#### 4. **Login sem informar credenciais**
+Verifica a obrigatoriedade dos campos e o comportamento do sistema ao tentar logar sem dados.
+
+---
+### Carrinho (`cart.cy.js`)
+O carrinho foi escolhido por representar a principal funcionalidade de um e-commerce e por permitir uma variedade grande de cenários de teste.
+
+#### 🔎 **Motivo da escolha**
+* É uma parte crítica do processo de compra.
+* Permite testar fluxos variados e ricos em UI.
+* Envolve validações importantes (quantidade, estoque, cupons, remoção etc.).
+* Funcionalidade altamente reutilizável para futuros testes.
+
+#### ✅ **Cenários de Teste**
+#### 1. **Adicionar um produto ao carrinho**
+Garante que o fluxo básico de adição funciona corretamente.
+
+#### 2. **Adicionar dois produtos iguais**
+Valida a contagem acumulada e a mensagem exibida.
+
+#### 3. **Adicionar dois produtos diferentes**
+Confirma que múltiplos itens distintos podem coexistir.
+
+#### 4. **Adicionar produto indisponível**
+Checa se o sistema exibe a alerta correto para itens fora de estoque.
+
+#### 5. **Visualizar conteúdo do carrinho**
+Valida a navegação e conferência dos itens adicionados.
+
+#### 6. **Remover um item do carrinho**
+Garante que a remoção simples funciona e mensagens são exibidas.
+
+#### 7. **Remover todos os itens do carrinho**
+Testa a função recursiva customizada para limpeza total.
+
+#### 8. **Diminuir quantidade quando há vários itens iguais**
+Valida se o botão de diminuir quantidade atualiza corretamente o item.
+
+#### 9. **Aplicar cupom válido**
+Simula aplicação de cupom com resultado de sucesso.
+
+#### 10. **Aplicar cupom inválido**
+Certifica que o sistema rejeita códigos inexistentes.
+
+#### 11. **Atualizar carrinho com quantidade maior que zero**
+Valida se o botão "Atualizar" efetivamente atualiza o carrinho.
+
+#### 12. **Atualizar carrinho com quantidade zero**
+O item deve ser removido e o carrinho ficar vazio.
+
+#### 13. **Atualizar carrinho com quantidade negativa**
+Garante que o alerta do sistema seja acionado corretamente.
+
+---
+## 🧩 Comandos Personalizados
+
+Local: `cypress/support/commands.js`
+
+Incluem:
+
+* `cy.login()` – fluxo de login completo
+* `cy.goToCartPage()` – navegação direta
+* `cy.addAndCheckProductToCart()` – adiciona e valida produtos
+* `cy.unavailableProducts()` – valida mensagens de indisponibilidade
+* `cy.deleteAllProducts()` – limpa o carrinho recursivamente
+
+Esses comandos foram criados para:
+
+* Reduzir repetição de código
+* Facilitar manutenção
+* Melhorar a leitura dos testes
+
+---
+## 👨‍💻 Autor
+**Pablo Paiva**
