@@ -50,7 +50,10 @@ desafio-cypress-QA/
 
 ---
 ## ⚙️ Como instalar as dependências
-1. Certifique-se de ter Node.js instalado. Caso não tenha, você pode instalar através do site oficial: https://nodejs.org/
+1. Certifique-se de ter Node.js instalado. Caso não tenha, você pode instalar através do site oficial: https://nodejs.org/.
+   **Recomendação de versão:**
+   - Para rodar localmente: Node.js 20 ou superior já é suficiente.
+   - Para rodar os testes no GitHub Actions: este projeto utiliza Node.js 24, garantindo compatibilidade total com o Cypress mais recente e evitando erros relacionados ao ambiente de execução
 2. Clone o repositório:
 ```bash
 git clone https://github.com/SEU_USUARIO/desafio-cypress-QA.git
