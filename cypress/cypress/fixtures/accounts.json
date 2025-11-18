@@ -1,0 +1,11 @@
+{
+    "validUser": {
+        "username": "desafio-cypress-qa",
+        "email": "desafio-cypress-qa@gmail.com",
+        "password": "Des@fioQ@"
+    },
+    "unvalidUser": {
+        "email": "invaliduser",
+        "password": "wrongpassword"
+    }
+}
