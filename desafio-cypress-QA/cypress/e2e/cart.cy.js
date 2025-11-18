@@ -68,4 +68,34 @@ describe('Cart', () => {
         cy.get('[name="apply_coupon"]').click()
         cy.get('.woocommerce-error').should('contain', `O cupom "${invalidCoupon.toLowerCase()}" não existe!`)
     });
+
+    it('Validate "Update Cart" button when quantity is greater than zero', () => {
+        cy.addAndCheckProductToCart('Aero Daily Fitness Tee', 'L', 'Black')
+
+        cy.goToCartPage()
+        cy.get('[class="input-text qty text"]').first().clear().type('3')
+        cy.get('[name="update_cart"]').click()
+        cy.get('.woocommerce-message').should('contain', 'Carrinho atualizado.')
+    });
+
+    it('Validate "Update Cart" button when quantity is zero', () => {
+        cy.addAndCheckProductToCart('Aero Daily Fitness Tee', 'L', 'Black')
+
+        cy.goToCartPage()
+        cy.get('[class="input-text qty text"]').first().clear().type('0')
+        cy.get('[name="update_cart"]').click()
+        cy.get('.woocommerce-message').should('contain', 'Carrinho atualizado.')
+        cy.get('[class="cart-empty woocommerce-info"]').should('contain', 'Seu carrinho está vazio.')
+    });
+
+    it('Validate "Update Cart" button when quantity is a negative number', () => {
+        cy.addAndCheckProductToCart('Aero Daily Fitness Tee', 'L', 'Black')
+        cy.goToCartPage()
+        cy.get('[class="input-text qty text"]').first().clear().type('-2')
+        cy.get('[name="update_cart"]').click()
+        cy.on('window:alert',(t)=>{
+        if (t.includes('O valor deve ser maior ou igual a 0.')) {
+            cy.on('window:confirm', () => true);
+        }})
+    });
 });

@@ -5,15 +5,15 @@ describe('Login', () => {
     it('Log in with a valid e-mail and password', () => {
         cy.login(accounts.validUser.email, accounts.validUser.password);
         cy.get('.woocommerce-MyAccount-content').should('contain', 'Olá, ')
-        cy.get('.woocommerce-MyAccount-content').should('contain', 'desafio-cypress-qa')
-        cy.get('."hidden-xs').should('contain', 'Welcome desafio-cypress-qa !')
+        cy.get('.woocommerce-MyAccount-content').should('contain', accounts.validUser.username)
+        cy.get('#tbay-topbar').should('contain', `Welcome ${accounts.validUser.username} !`)
     });
 
     it('Log in with a valid username and password', () => {
         cy.login(accounts.validUser.username, accounts.validUser.password);
         cy.get('.woocommerce-MyAccount-content').should('contain', 'Olá, ')
-        cy.get('.woocommerce-MyAccount-content').should('contain', 'desafio-cypress-qa')
-        cy.get('."hidden-xs').should('contain', 'Welcome desafio-cypress-qa !')
+        cy.get('.woocommerce-MyAccount-content').should('contain', accounts.validUser.username)
+        cy.get('#tbay-topbar').should('contain', `Welcome ${accounts.validUser.username} !`)
     });
 
     it('Log in with invalid credentials', function() {
@@ -21,7 +21,7 @@ describe('Login', () => {
 
         cy.get('.woocommerce-error').should('contain', 'Erro')
         cy.get('.woocommerce-error').should('contain', ': O usuário ')
-        cy.get('.woocommerce-error').should('contain', 'invaliduser')
+        cy.get('.woocommerce-error').should('contain', accounts.unvalidUser.email)
         cy.get('.woocommerce-error').should('contain', 'não está registrado neste site. Se você não está certo de seu nome de usuário, experimente o endereço de e-mail.')
     });
 
