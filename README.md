@@ -106,16 +106,20 @@ A funcionalidade de login foi escolhida por ser uma das principais portas de ent
 * É facilmente reaproveitável em outros testes futuros.
 
 #### ✅ **Cenários de Teste**
-#### 1. **Login com e-mail válido e senha válida**
+**1. Login com e-mail válido e senha válida**
+
 Garante que o usuário consiga acessar sua conta usando o e-mail cadastrado.
 
-#### 2. **Login com username válido e senha válida**
+**2. Login com username válido e senha válida**
+
 Valida a possibilidade de autenticação alternativa via nome de usuário.
 
-#### 3. **Tentativa de login com credenciais inválidas**
+**3. Tentativa de login com credenciais inválidas**
+
 Confirma que o sistema exibe mensagens adequadas de erro e não autentica usuários inválidos.
 
-#### 4. **Login sem informar credenciais**
+**4. Login sem informar credenciais**
+
 Verifica a obrigatoriedade dos campos e o comportamento do sistema ao tentar logar sem dados.
 
 ---
@@ -129,43 +133,56 @@ O carrinho foi escolhido por representar a principal funcionalidade de um e-comm
 * Funcionalidade altamente reutilizável para futuros testes.
 
 #### ✅ **Cenários de Teste**
-#### 1. **Adicionar um produto ao carrinho**
+**1. Adicionar um produto ao carrinho**
+
 Garante que o fluxo básico de adição funciona corretamente.
 
-#### 2. **Adicionar dois produtos iguais**
+**2. Adicionar dois produtos iguais**
+
 Valida a contagem acumulada e a mensagem exibida.
 
-#### 3. **Adicionar dois produtos diferentes**
+**3. Adicionar dois produtos diferentes**
+
 Confirma que múltiplos itens distintos podem coexistir.
 
-#### 4. **Adicionar produto indisponível**
+**4. Adicionar produto indisponível**
+
 Checa se o sistema exibe a alerta correto para itens fora de estoque.
 
-#### 5. **Visualizar conteúdo do carrinho**
+**5. Visualizar conteúdo do carrinho**
+
 Valida a navegação e conferência dos itens adicionados.
 
-#### 6. **Remover um item do carrinho**
+**6. Remover um item do carrinho**
+
 Garante que a remoção simples funciona e mensagens são exibidas.
 
-#### 7. **Remover todos os itens do carrinho**
+**7. Remover todos os itens do carrinho**
+
 Testa a função recursiva customizada para limpeza total.
 
-#### 8. **Diminuir quantidade quando há vários itens iguais**
+**8. Diminuir quantidade quando há vários itens iguais**
+
 Valida se o botão de diminuir quantidade atualiza corretamente o item.
 
-#### 9. **Aplicar cupom válido**
+**9. Aplicar cupom válido**
+
 Simula aplicação de cupom com resultado de sucesso.
 
-#### 10. **Aplicar cupom inválido**
+**10. Aplicar cupom inválido**
+
 Certifica que o sistema rejeita códigos inexistentes.
 
-#### 11. **Atualizar carrinho com quantidade maior que zero**
+**11. Atualizar carrinho com quantidade maior que zero**
+
 Valida se o botão "Atualizar" efetivamente atualiza o carrinho.
 
-#### 12. **Atualizar carrinho com quantidade zero**
+**12. Atualizar carrinho com quantidade zero**
+
 O item deve ser removido e o carrinho ficar vazio.
 
-#### 13. **Atualizar carrinho com quantidade negativa**
+**13. Atualizar carrinho com quantidade negativa**
+
 Garante que o alerta do sistema seja acionado corretamente.
 
 ---
