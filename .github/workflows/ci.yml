@@ -6,19 +6,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           working-directory: desafio-cypress-QA
           config-file: cypress.config.js
+
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+          path: desafio-cypress-QA/cypress/screenshots
+          if-no-files-found: ignore
+
       - uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+          path: desafio-cypress-QA/cypress/videos
+          if-no-files-found: ignore
