@@ -1,5 +1,7 @@
 name: Desafio Cypress QA - CI
-on: push
+on:
+  push:
+  workflow_dispatch:
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
