@@ -13,10 +13,10 @@ O objetivo é demonstrar a criação de cenários reutilizáveis em um ambiente 
 * [⚙️ Como instalar as dependências](#️-como-instalar-as-dependências)
 * [▶️ Como rodar os testes](#️-como-rodar-os-testes)
 * [🧪 Cenários Automatizados](#-cenários-automatizados)
-  * [Login](---)
-  * [Carrinho](---)
+  * [Login (`login.cy.js`)](#login-logincyjs)
+  * [Carrinho (`cart.cy.js`)](#carrinho-cartcyjs)
 * [🧩 Comandos Personalizados](#-comandos-personalizados)
-* [👨‍💻 Autor](---)
+* [Autor](#autor)
 
 ---
 ## 🛠️ Tecnologias Utilizadas
@@ -188,5 +188,5 @@ Esses comandos foram criados para:
 * Melhorar a leitura dos testes
 
 ---
-## 👨‍💻 Autor
+## Autor
 **Pablo Paiva**
