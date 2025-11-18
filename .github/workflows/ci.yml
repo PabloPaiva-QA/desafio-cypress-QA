@@ -8,6 +8,9 @@ jobs:
         uses: actions/checkout@v5
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          working-directory: desafio-cypress-QA
+          config-file: cypress.config.js
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
