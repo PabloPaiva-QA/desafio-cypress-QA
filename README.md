@@ -1,4 +1,4 @@
-# Desafio Cypress QA
+# Projeto Teste Cypress QA
 
 Este repositório contém a automação desenvolvida para o desafio prático de testes automatizados utilizando Cypress.
 
